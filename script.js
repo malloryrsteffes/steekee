@@ -101,6 +101,7 @@ function setScore() {
 }
 
 function getScore() {
+  // Mal's additions
   // initialize a variable that holds the first number in our localStorage highscores variable (which we figured out before)
   let finalHighScore = localStorage.highscores[1];
   var quizContent =
