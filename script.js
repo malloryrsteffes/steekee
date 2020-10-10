@@ -40,7 +40,7 @@ var currentQuestion = -1;
 var timeLeft = 0;
 var timer;
 
-// Mal
+// Mal's additions
 // initiate an array called highscores, which holds anything in the localStorage named "highscores" (or starts as an empty array)
 let highscores = JSON.parse(localStorage.getItem("highscores")) || [];
 
@@ -80,25 +80,36 @@ function endGame() {
 
 //Store score to local storage
 function setScore() {
-  // Mal
-  // Push the score into the highscores variable array we declared earlier
+  // Mal's additions
+  // Push the score from the game into the highscores variable array we declared earlier
   highscores.push(score);
-  // Set the localStorage array to the stringified version of our highscores array
+  // This is a basic sort function, native to javascript, that returns the array in descending order.
+  highscores.sort(function(a, b) {
+    return b - a;
+  });
+  // you can remove the console logs. they are just for testing
+  console.log(highscores);
+  // Set the localStorage 'highscores' array to the stringified version of our previously declared highscores array
   localStorage.setItem("highscores", JSON.stringify(highscores));
-  console.log(localStorage.getItem("highscores"));
+  // Testing to see what value we need to put into the brackets to grab the first item in the (sorted) array.
+  // I'm not entirely sure why it's counting the actual bracket as the [0]th item in the array, but oh well.
+  // We will set this value to a variable during the getScore() function
+  console.log("local storage:" + localStorage.highscores[1]);
 
   localStorage.setItem("highscoreName", document.getElementById("name").value);
   getScore();
 }
 
 function getScore() {
+  // initialize a variable that holds the first number in our localStorage highscores variable (which we figured out before)
+  let finalHighScore = localStorage.highscores[1];
   var quizContent =
     `
     <h2>` +
     localStorage.getItem("highscoreName") +
     `'s current highscore:</h2>
     <h1>` +
-    localStorage.getItem("highscore") +
+    finalHighScore +
     `</h1><br> 
     
     <button onclick="resetGame()">Go Back</button><button onclick="clearScore()">Clear Highscore</button>
