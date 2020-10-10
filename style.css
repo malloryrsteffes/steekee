@@ -1,0 +1,61 @@
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.left a {
+  color: indigo;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+#quizBody {
+  text-align: center;
+  padding: 12vh;
+}
+
+h4 {
+  padding: 10px 8 px 10px 8px;
+}
+
+h3 {
+  font-size: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  border: none;
+  background-color: indigo;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 16px 10px 16px;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 4px;
+}
+
+button:hover {
+  background-color: purple;
+}
+
+.answerButton {
+  margin: 0 auto;
+  display: block;
+  width: 160px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+#quiz {
+  text-align: center;
+}
